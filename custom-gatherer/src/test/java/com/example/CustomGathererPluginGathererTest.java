@@ -2,7 +2,7 @@ package com.example;
 
 import org.junit.Test;
 
-public class CustomGatherPluginExamplePluginGathererTest {
+public class CustomGathererPluginGathererTest {
 
     @Test
     public void testCustomGatherPlugin(){

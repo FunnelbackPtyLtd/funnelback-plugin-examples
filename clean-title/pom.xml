@@ -1,8 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+    <artifactId>funnelback-plugin-examples</artifactId>
+    <groupId>com.funnelback</groupId>
+    <version>1.0</version>
+  </parent>
     <groupId>com.example</groupId>
-    <artifactId>custom-gather-plugin-example</artifactId>
+    <artifactId>clean-title</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>Funnelback plugin</name>
@@ -95,7 +100,7 @@
                                 </goals>
                                 <configuration>
                                     <tasks>
-                                        <fail message="Environment variable SEARCH_HOME must be set." unless="env.SEARCH_HOME"/>
+                                        <fail message="Environment variable SEARCH_HOME must be set." unless="env.SEARCH_HOME" />
                                         
                                         <echo message="Installing plugin into '${env.SEARCH_HOME}'" />
 
@@ -133,13 +138,13 @@
                                 </goals>
                                 <configuration>
                                     <tasks>
-                                        <fail message="Environment variable SEARCH_HOME_REMOTE must be set to the full path of SEARCH_HOME on the remote host." unless="env.SEARCH_HOME_REMOTE"/>
-                                        <fail message="Environment variable SEARCH_USER_AND_HOST must be set to the user and hostname of the remote host in the form user@host" unless="env.SEARCH_USER_AND_HOST"/>
+                                        <fail message="Environment variable SEARCH_HOME_REMOTE must be set to the full path of SEARCH_HOME on the remote host." unless="env.SEARCH_HOME_REMOTE" />
+                                        <fail message="Environment variable SEARCH_USER_AND_HOST must be set to the user and hostname of the remote host in the form user@host" unless="env.SEARCH_USER_AND_HOST" />
                                         
                                         <exec executable="rsync">
-                                            <arg value="-avz"/>
-                                            <arg value="target/${project.version}"/>
-                                            <arg value="${env.SEARCH_USER_AND_HOST}:${env.SEARCH_HOME_REMOTE}/share/plugins/${project.artifactId}/"/>
+                                            <arg value="-avz" />
+                                            <arg value="target/${project.version}" />
+                                            <arg value="${env.SEARCH_USER_AND_HOST}:${env.SEARCH_HOME_REMOTE}/share/plugins/${project.artifactId}/" />
                                         </exec>
                                     </tasks>
                                 </configuration>
