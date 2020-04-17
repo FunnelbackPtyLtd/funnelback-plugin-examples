@@ -23,11 +23,11 @@ public class CustomGathererPluginGathererTest {
         List<MockPluginStore.MockPluginStoreResult> resultList = mockPluginStore.getStored();
 
         for (int i = 0; i < 10 ; i++) {
-            Assert.assertEquals(resultList.get(i).getUri().toString(), "http://www.example.com/" + i);
-            Assert.assertEquals(new String(resultList.get(i).getContent()), "Hello world!");
-            Assert.assertEquals(resultList.get(i).getMetadata().get("Content-Type").get(0), "text/html; charset=UTF-8");
-            Assert.assertEquals(resultList.get(i).getMetadata().get("total-docs").get(0), "10");
-            Assert.assertEquals(resultList.get(i).getMetadata().get("this-doc-number").get(0), String.valueOf(i));
+            Assert.assertEquals("http://www.example.com/" + i, resultList.get(i).getUri().toString());
+            Assert.assertEquals("Hello world!", new String(resultList.get(i).getContent()));
+            Assert.assertEquals("text/html; charset=UTF-8", resultList.get(i).getMetadata().get("Content-Type").get(0));
+            Assert.assertEquals("10", resultList.get(i).getMetadata().get("total-docs").get(0));
+            Assert.assertEquals( String.valueOf(i), resultList.get(i).getMetadata().get("this-doc-number").get(0));
         }
     }
 }

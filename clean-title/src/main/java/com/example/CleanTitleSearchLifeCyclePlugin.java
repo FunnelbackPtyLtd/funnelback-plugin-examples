@@ -15,7 +15,7 @@ public class CleanTitleSearchLifeCyclePlugin implements SearchLifeCyclePlugin {
         }
     }
 
-    private Result cleanTitle(Result result) {
+    protected Result cleanTitle(Result result) {
         String title = result.getTitle();
         title = title.replaceAll(" - Funnelback Documentation", "");
         title = title.replaceAll(" (- Version )?\\d+\\.\\d+\\.\\d+(-SNAPSHOT)?", "");
