@@ -11,7 +11,7 @@ Add the following to `collection.cfg` to enable the plugin.
 
 ```ini
 plugin.additional-metadata.enabled=true
-plugin.additional-metadata=1.0
+plugin.additional-metadata.version=1.0
 ```
 
 The following `collection.cfg` settings can be used to configure the plugin:
