@@ -32,7 +32,7 @@ public class JsoupFilteringJsoupFilterTest {
             "</html>");
         
         // Simulate configuring the plugin, these options would go in the collection configuration (collection.cfg)
-        filterContext.getSetup().setConfigSetting("myplugin.class-to-count", "cities");
+        filterContext.getSetup().setConfigSetting("plugin.jsoup-filtering.class-to-count", "cities");
         
         // Run our filter.
         underTest.processDocument(filterContext);

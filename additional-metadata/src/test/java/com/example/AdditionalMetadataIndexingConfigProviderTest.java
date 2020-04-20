@@ -9,16 +9,16 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class ExtraMetadataIndexingConfigProviderTest {
+public class AdditionalMetadataIndexingConfigProviderTest {
 
     @Test
-    public void testIndexingPlugin(){
-        ExtraMetadataIndexingConfigProvider underTest = new ExtraMetadataIndexingConfigProvider();
+    public void testMetadataMappings(){
+        AdditionalMetadataIndexingConfigProvider underTest = new AdditionalMetadataIndexingConfigProvider();
         MockIndexConfigProviderContext mockContext = new MockIndexConfigProviderContext();
         MockMetadataMappingConsumer mockConsumer = new MockMetadataMappingConsumer();
 
         mockContext.setCollectionName("collection");
-        mockContext.setConfigSetting("plugin.example.extra-metadata", "FUNkgLiveUrl");
+        mockContext.setConfigSetting("plugin.additional-metadata.metadata", "FUNkgLiveUrl");
 
         underTest.metadataMappings(mockContext, mockConsumer);
 

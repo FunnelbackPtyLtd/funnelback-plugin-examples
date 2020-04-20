@@ -13,7 +13,7 @@ public class JsoupFilteringJsoupFilter implements IJSoupFilter {
     @Override
     public void processDocument(FilterContext filterContext) {
         // Get the configured class to count from collection.cfg
-        String classToCount = filterContext.getSetup().getConfigSetting("myplugin.class-to-count");
+        String classToCount = filterContext.getSetup().getConfigSetting("plugin.jsoup-filtering.class-to-count");
         
         // Find the number of elements with that class.
         int elementCount = filterContext.getDocument().getElementsByClass(classToCount).size();

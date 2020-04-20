@@ -13,7 +13,7 @@ public class PluginPropsFileTest extends AbstractPluginPropertiesFileTest {
      */
     @Override
     public String getPluginName() {
-        return "extra-metadata";
+        return "additional-metadata";
     }
 
     

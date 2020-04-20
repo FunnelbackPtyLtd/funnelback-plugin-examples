@@ -8,14 +8,17 @@ import com.funnelback.plugin.index.model.metadatamapping.MetadataType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ExtraMetadataIndexingConfigProvider implements IndexingConfigProvider {
+/**
+ * This example explains how we can use the `Indexing` plugin to add some additional metadata
+ */
+public class AdditionalMetadataIndexingConfigProvider implements IndexingConfigProvider {
 
-    private static Logger log = LogManager.getLogger(ExtraMetadataIndexingConfigProvider.class);
+    private static Logger log = LogManager.getLogger(AdditionalMetadataIndexingConfigProvider.class);
 
     @Override
     public void metadataMappings(IndexConfigProviderContext context, MetadataMappingConsumer consumer) {
-        log.warn("Executing ExtraMetaData for " + context.getCollectionName());
-        String valueToSet = context.getConfigSetting("plugin.example.extra-metadata");
+        log.debug("Executing ExtraMetaData for " + context.getCollectionName());
+        String valueToSet = context.getConfigSetting("plugin.additional-metadata.metadata");
         consumer.map("author", MetadataType.TEXT_NOT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, "author");
         consumer.map(valueToSet, MetadataType.TEXT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, valueToSet);
     }
