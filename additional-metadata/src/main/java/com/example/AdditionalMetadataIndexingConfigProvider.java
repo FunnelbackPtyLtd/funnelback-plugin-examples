@@ -9,17 +9,29 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * This example explains how we can use the `Indexing` plugin to add some additional metadata
+ * Demonstrates supplying additional metadata mappings.
+ * 
+ * Also shows reading from collection.cfg
  */
 public class AdditionalMetadataIndexingConfigProvider implements IndexingConfigProvider {
 
     private static Logger log = LogManager.getLogger(AdditionalMetadataIndexingConfigProvider.class);
 
+    /**
+     * Map values in {@code <meta name="author" >} to metadata class authors.
+     * 
+     * Also maps values in a HTML metadata class specified in collection.cfg to
+     * the metadata class authors.
+     */
     @Override
     public void metadataMappings(IndexConfigProviderContext context, MetadataMappingConsumer consumer) {
-        log.debug("Executing ExtraMetaData for " + context.getCollectionName());
-        String valueToSet = context.getConfigSetting("plugin.additional-metadata.metadata");
-        consumer.map("author", MetadataType.TEXT_NOT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, "author");
-        consumer.map(valueToSet, MetadataType.TEXT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, valueToSet);
+        log.debug("Adding additional metadata mappings for '{}'.", context.getCollectionName());
+        
+        // Always map the value of HTML <meta name="author" > as well as HTTP header "author" to metadata class authors.
+        consumer.map("authors", MetadataType.TEXT_NOT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, "author");
+        
+        // Also map 
+        String htmlMetadataName = context.getConfigSetting("plugin.additional-metadata.metadata");
+        consumer.map("authors", MetadataType.TEXT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, htmlMetadataName);
     }
 }
