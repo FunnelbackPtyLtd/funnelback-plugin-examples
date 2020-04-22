@@ -1,4 +1,4 @@
-package com.example;
+package com.example.cleantitle;
 
 import org.junit.Assert;
 import org.junit.Test;

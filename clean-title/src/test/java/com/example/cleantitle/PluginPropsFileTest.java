@@ -1,4 +1,4 @@
-package com.example;
+package com.example.cleantitle;
 
 import com.funnelback.plugin.test.AbstractPluginPropertiesFileTest;
 
@@ -13,7 +13,7 @@ public class PluginPropsFileTest extends AbstractPluginPropertiesFileTest {
      */
     @Override
     public String getPluginName() {
-        return "clean-title";
+        return PluginUtils.PLUGIN_NAME;
     }
 
     

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.cleantitle;
 
 import com.funnelback.plugin.SearchLifeCyclePlugin;
 import com.funnelback.publicui.search.model.transaction.SearchTransaction;
