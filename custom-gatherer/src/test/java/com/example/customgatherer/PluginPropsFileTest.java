@@ -1,4 +1,4 @@
-package com.example;
+package com.example.customgatherer;
 
 import com.funnelback.plugin.test.AbstractPluginPropertiesFileTest;
 
@@ -13,7 +13,7 @@ public class PluginPropsFileTest extends AbstractPluginPropertiesFileTest {
      */
     @Override
     public String getPluginName() {
-        return "custom-gatherer";
+        return PluginUtils.PLUGIN_NAME;
     }
 
     
