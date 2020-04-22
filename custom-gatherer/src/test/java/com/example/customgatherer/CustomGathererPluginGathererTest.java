@@ -18,8 +18,8 @@ public class CustomGathererPluginGathererTest {
         CustomGathererPluginGatherer underTest = new CustomGathererPluginGatherer();
 
         // Set the collection.cfg settings
-        mockContext.setConfigSetting("plugin.custom-gatherer.number-of-documents-to-make", "2");
-        mockContext.setConfigSetting("plugin.custom-gatherer.document-url", "http://www.example.com/");
+        mockContext.setConfigSetting(PluginUtils.KEY_PREFIX + "number-of-documents-to-make", "2");
+        mockContext.setConfigSetting(PluginUtils.KEY_PREFIX + "document-url", "http://www.example.com/");
 
         // As the plugin gatherer is likely to interact with an external system you may need
         // to mock those interactions out. Until that is done you can still use this test to

@@ -12,7 +12,7 @@ public class CleanTitleSearchLifeCyclePlugin implements SearchLifeCyclePlugin {
 
     @Override
     public void postDatafetch(SearchTransaction transaction) {
-        String regex = transaction.getQuestion().getCurrentProfileConfig().get("plugin.clean-title.regex-pattern");
+        String regex = transaction.getQuestion().getCurrentProfileConfig().get(PluginUtils.KEY_PREFIX + "regex-pattern");
         if (transaction.hasResponse()) {
             if (transaction.getResponse().hasResultPacket()) {
                 transaction.getResponse().getResultPacket().getResults().forEach(r -> cleanTitle(r, regex));

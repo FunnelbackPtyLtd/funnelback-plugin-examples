@@ -18,8 +18,8 @@ public class CustomGathererPluginGatherer implements PluginGatherer {
     public void gather(PluginGatherContext pluginGatherContext, PluginStore store) throws Exception {
 
         // Read from collection.cfg
-        int docsToMake = Integer.parseInt(pluginGatherContext.getConfigSetting("plugin.custom-gatherer.number-of-documents-to-make"));
-        String documentUrl = pluginGatherContext.getConfigSetting("plugin.custom-gatherer.document-url");
+        int docsToMake = Integer.parseInt(pluginGatherContext.getConfigSetting(PluginUtils.KEY_PREFIX + "number-of-documents-to-make"));
+        String documentUrl = pluginGatherContext.getConfigSetting(PluginUtils.KEY_PREFIX + "document-url");
 
         for(int i = 0; i< docsToMake; i++) {
             ArrayListMultimap<String, String> metadata = ArrayListMultimap.create();

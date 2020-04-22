@@ -10,7 +10,7 @@
     <modules>
         <module>clean-title</module>
         <module>custom-gatherer</module>
-        <module>extra-metadata</module>
+        <module>additional-metadata</module>
         <module>jsoup-filtering</module>
     </modules>
 </project>
