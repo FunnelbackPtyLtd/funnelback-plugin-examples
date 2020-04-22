@@ -1,4 +1,4 @@
-package com.example;
+package com.example.additionalmetadata;
 
 import com.funnelback.plugin.index.consumers.mock.MockMetadataMappingConsumer;
 import com.funnelback.plugin.index.mock.MockIndexConfigProviderContext;
