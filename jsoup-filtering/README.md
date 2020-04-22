@@ -16,7 +16,7 @@ plugin.jsoup-filtering.version=1.0
 
 The following `collection.cfg` settings can be used to configure the plugin:
 
-* `plugin.jsoup-filtering.class-to-count=<STRING>` : Name of the class which needs to counted
+* `plugin.jsoup-filtering.class-to-count=<STRING>` : Name of the class which needs to be counted.
 
 An example to specify which class which needs to be counted.
 
