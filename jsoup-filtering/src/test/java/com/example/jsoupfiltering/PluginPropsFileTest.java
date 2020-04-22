@@ -1,4 +1,4 @@
-package com.example;
+package com.example.jsoupfiltering;
 
 import com.funnelback.plugin.test.AbstractPluginPropertiesFileTest;
 
@@ -13,7 +13,7 @@ public class PluginPropsFileTest extends AbstractPluginPropertiesFileTest {
      */
     @Override
     public String getPluginName() {
-        return "jsoup-filtering";
+        return PluginUtils.PLUGIN_NAME;
     }
 
     
