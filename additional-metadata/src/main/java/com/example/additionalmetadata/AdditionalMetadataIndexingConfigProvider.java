@@ -1,4 +1,4 @@
-package com.example;
+package com.example.additionalmetadata;
 
 import com.funnelback.plugin.index.IndexConfigProviderContext;
 import com.funnelback.plugin.index.IndexingConfigProvider;
