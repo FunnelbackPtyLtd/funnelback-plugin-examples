@@ -18,7 +18,7 @@ public class AdditionalMetadataIndexingConfigProviderTest {
         AdditionalMetadataIndexingConfigProvider underTest = new AdditionalMetadataIndexingConfigProvider();
         
         // Set collection.cfg config options.
-        mockContext.setConfigSetting("plugin.additional-metadata.metadata", "publishers");
+        mockContext.setConfigSetting(PluginUtils.KEY_PREFIX + "metadata", "publishers");
 
         // Now run the method on our class we implemented.
         underTest.metadataMappings(mockContext, mockConsumer);

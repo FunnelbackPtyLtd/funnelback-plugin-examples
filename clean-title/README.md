@@ -16,9 +16,7 @@ plugin.clean-title.version=1.0
 
 The following `collection.cfg` settings can be used to configure the plugin:
 
-```ini
-plugin.clean-title.regex-pattern=<REGEX PATTERN>
-```
+* `plugin.clean-title.regex-pattern`: specify the regex pattern to match the section which needs to be removed from the title.
 
 An example to specify regex pattern in `collection.cfg` to match a section which needs to be removed from the title.
 

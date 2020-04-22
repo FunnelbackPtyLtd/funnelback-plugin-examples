@@ -15,10 +15,8 @@ plugin.custom-gatherer.version=1.0
 
 The following `collection.cfg` settings can be used to configure the plugin:
 
-```ini
-plugin.custom-gatherer.number-of-documents-to-make=<INTEGER>
-plugin.custom-gatherer.document-url=<URL>
-```
+* `plugin.custom-gatherer.number-of-documents-to-make`: Specify the number of documents that need to be created.
+* `plugin.custom-gatherer.document-url`: Specify the base URL of the documents that should be generated.
 
 An example to specify the number of documents that should be generated and the URLs of those documents.
 

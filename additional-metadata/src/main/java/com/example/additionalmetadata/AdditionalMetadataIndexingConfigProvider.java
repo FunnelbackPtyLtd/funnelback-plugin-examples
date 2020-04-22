@@ -31,7 +31,7 @@ public class AdditionalMetadataIndexingConfigProvider implements IndexingConfigP
         consumer.map("authors", MetadataType.TEXT_NOT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, "author");
         
         // Also map 
-        String htmlMetadataName = context.getConfigSetting("plugin.additional-metadata.metadata");
+        String htmlMetadataName = context.getConfigSetting(PluginUtils.KEY_PREFIX + "metadata");
         consumer.map("authors", MetadataType.TEXT_INDEXED_AS_DOCUMENT_CONTENT, MetadataSourceType.HTML_OR_HTTP_HEADERS, htmlMetadataName);
     }
 }
