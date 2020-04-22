@@ -1,4 +1,4 @@
-package com.example;
+package com.example.jsoupfiltering;
 
 import java.util.Collection;
 
@@ -13,26 +13,27 @@ public class JsoupFilteringJsoupFilterTest {
 
     @Test
     public void countingClassesTest() {
-        JsoupFilteringJsoupFilter underTest = new JsoupFilteringJsoupFilter();
-        
+
         // Make a mock context with the HTML document we want to test our filter on.
         MockJsoupFilterContext filterContext = new MockJsoupFilterContext(
-            "<html>\n" + 
-            "<body>\n" + 
-            "\n" + 
-            "<div class=\"cities\">\n" + 
-            "    <h2>London</h2>\n" + 
-            "</div>\n" + 
-            "\n" + 
-            "<div class=\"cities historic\">\n" + 
-            "  <h2>Paris</h2>\n" + 
-            "</div>\n" + 
-            "\n" + 
-            "</body>\n" + 
+            "<html>\n" +
+            "<body>\n" +
+            "\n" +
+            "<div class=\"cities\">\n" +
+            "    <h2>London</h2>\n" +
+            "</div>\n" +
+            "\n" +
+            "<div class=\"cities historic\">\n" +
+            "  <h2>Paris</h2>\n" +
+            "</div>\n" +
+            "\n" +
+            "</body>\n" +
             "</html>");
-        
+
+        JsoupFilteringJsoupFilter underTest = new JsoupFilteringJsoupFilter();
+
         // Simulate configuring the plugin, these options would go in the collection configuration (collection.cfg)
-        filterContext.getSetup().setConfigSetting("plugin.jsoup-filtering.class-to-count", "cities");
+        filterContext.getSetup().setConfigSetting(PluginUtils.KEY_PREFIX + "class-to-count", "cities");
         
         // Run our filter.
         underTest.processDocument(filterContext);
