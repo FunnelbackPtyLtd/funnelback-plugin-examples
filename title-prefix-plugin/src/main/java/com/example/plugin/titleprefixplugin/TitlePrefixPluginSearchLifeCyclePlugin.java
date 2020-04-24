@@ -6,6 +6,10 @@ import org.apache.logging.log4j.Logger;
 import com.funnelback.plugin.SearchLifeCyclePlugin;
 import com.funnelback.publicui.search.model.transaction.SearchTransaction;
 
+/**
+ * Note: This plugin is explained in detail as part of the 'Developing your first plugin' guide in the Funnelback product documentation.
+ * This file will has additional line markers // A, B, C etc. which are references referred to in the documentation itself.
+ */
 public class TitlePrefixPluginSearchLifeCyclePlugin implements SearchLifeCyclePlugin {
 
     private static final Logger log = LogManager.getLogger(TitlePrefixPluginSearchLifeCyclePlugin.class); // A

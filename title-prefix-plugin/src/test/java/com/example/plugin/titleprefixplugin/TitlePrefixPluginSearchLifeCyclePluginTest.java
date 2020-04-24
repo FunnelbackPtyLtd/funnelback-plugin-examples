@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Note: This plugin is explained in detail as part of the 'Developing your first plugin' guide in the Funnelback product documentation.
+ * This file will has additional line markers // 1, 2, 3 etc. which are references referred to in the documentation itself.
+ */
 public class TitlePrefixPluginSearchLifeCyclePluginTest {
 
     TitlePrefixPluginSearchLifeCyclePlugin pluginUnderTest = new TitlePrefixPluginSearchLifeCyclePlugin(); // 1
