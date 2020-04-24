@@ -12,5 +12,6 @@
         <module>custom-gatherer</module>
         <module>additional-metadata</module>
         <module>jsoup-filtering</module>
+        <module>title-prefix-plugin</module>
     </modules>
 </project>
