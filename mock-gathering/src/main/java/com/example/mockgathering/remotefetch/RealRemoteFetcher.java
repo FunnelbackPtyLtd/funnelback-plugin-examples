@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class RealRemoteFetcher implements RemoteFetcher {
 
     @Override
-    public String get(URI url, Map<String, String> headers) {
+    public byte[] get(URI url, Map<String, String> headers) {
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url.toASCIIString()).openConnection();
             try {
@@ -35,7 +35,7 @@ public class RealRemoteFetcher implements RemoteFetcher {
                 int responseCode = connection.getResponseCode();
                 
                 try (InputStream is = connection.getInputStream()){            
-                    return new String(getBytesFromInputSteam(is), StandardCharsets.UTF_8);
+                    return getBytesFromInputSteam(is);
         
                 } catch (Exception e) {
                     InputStream is = connection.getErrorStream();

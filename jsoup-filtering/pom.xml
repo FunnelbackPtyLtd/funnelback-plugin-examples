@@ -12,7 +12,7 @@
     <version>1.0</version>
     <name>Funnelback plugin jsoup filtering example</name>
     <properties>
-        <version.log4j2>2.6.2</version.log4j2>
+        <version.log4j2>2.17.0</version.log4j2>
         <version.junit>4.12</version.junit>
         <version.funnelback.shared>15.25.2015.1</version.funnelback.shared>
     </properties>

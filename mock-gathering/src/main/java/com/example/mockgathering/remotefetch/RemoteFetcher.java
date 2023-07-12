@@ -13,5 +13,5 @@ public interface RemoteFetcher {
      * @param headers headers to also send in the request.
      * @return the body content of the request if all goes well.
      */
-    public String get(URI url, Map<String, String> headers);
+    byte[] get(URI url, Map<String, String> headers);
 }
