@@ -1,5 +1,6 @@
 package com.example.mockgathering;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Stack;
 
 import java.net.URI;
 
+import com.funnelback.plugin.gatherer.FileScanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +35,11 @@ public class MockGatheringPluginGatherer implements PluginGatherer {
     
     @Override
     public void gather(PluginGatherContext pluginGatherContext, PluginStore store) throws Exception {
+        // Files gathered via URL and therefore need scanning and therefore this method is not implemented
+    }
+
+    @Override
+    public void gather(PluginGatherContext pluginGatherContext, PluginStore store, FileScanner scanner) throws Exception {
         
         // Get the security-token from config, this will be supplied in each request.
         Map<String, String> headers = new HashMap<>();
@@ -49,9 +56,16 @@ public class MockGatheringPluginGatherer implements PluginGatherer {
         
         while(!urlsToFetch.isEmpty()) {
             URI url = urlsToFetch.pop();
-            String fetchedContent = remoteFetcher.get(url, headers);
-            List<URI> moreUrlsToFetch = new FetchedResultParser().parseFetchedContent(url, fetchedContent, store);
-            urlsToFetch.addAll(moreUrlsToFetch);
+            byte[] fetchedContent = remoteFetcher.get(url, headers);
+            // Scan document for viruses
+            if (scanner.checkbytes(fetchedContent)) {
+                // Store current URI and check for more
+                List<URI> moreUrlsToFetch = new FetchedResultParser().parseFetchedContent(url, new String(fetchedContent, StandardCharsets.UTF_8), store);
+                urlsToFetch.addAll(moreUrlsToFetch);
+            } else {
+                throw new RuntimeException("File " + url + " has failed virus scanning");
+            }
+
         }
         
         
